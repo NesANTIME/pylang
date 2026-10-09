@@ -1,24 +1,31 @@
 package config
 
 type Application struct {
-	Parameters Args
-	Path       Paths
+	Name   string
+	Path   Paths
+	Config Configs
 
 	ContentByte ContentBytes
 }
 
-type Args struct {
-	NameFile string
-
-	ModelCompressed         string
-	ExcluideFoldersAndFiles []string
-}
-
 type Paths struct {
-	Work string
+	Work        string
+	Interpreter string
 
 	PylangCompiler string
 	PylangBuild    string
+	PylangCache    string
+}
+
+type Configs struct {
+	SO   string
+	ARCH string
+
+	ModelCompressed    string
+	VersionInterpreter string
+
+	ExcluideCompiler    []string
+	ExcluideInterpreter []string
 }
 
 type ContentBytes struct {

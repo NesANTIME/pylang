@@ -1,4 +1,4 @@
-package function
+package logger
 
 import (
 	"fmt"
@@ -41,6 +41,8 @@ func Print(Log config.Log) {
 
 	fmt.Println(message)
 }
+
+// ---
 
 func Animation(msg string, frameMs int) *spinner.Spinner {
 	s := spinner.New(

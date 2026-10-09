@@ -26,7 +26,7 @@ func shouldExclude(path string, info os.FileInfo, excludes []string) bool {
 
 // ---
 
-func Zip(pathdir string, pathfile string, excludes []string) (string, error) {
+func compressedZip(pathdir string, pathfile string, excludes []string) (string, error) {
 	zipfile, err := os.Create(pathfile)
 	if err != nil {
 		return pathfile, err

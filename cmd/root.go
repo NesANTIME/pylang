@@ -2,14 +2,17 @@ package cmd
 
 import (
 	"fmt"
-	"pylang/config"
+	"runtime"
 
 	"github.com/spf13/cobra"
 )
 
 var (
+	Name string
 	Path string
-	Arg  config.Args
+
+	SO   string
+	ARCH string
 
 	RootCmD = &cobra.Command{
 		Use:   "pylang",
@@ -39,8 +42,10 @@ var compileCmd = &cobra.Command{
 }
 
 func init() {
-	compileCmd.Flags().StringVarP(&Arg.NameFile, "output", "o", "setup", "output file/directory")
-	compileCmd.Flags().StringVarP(&Arg.ModelCompressed, "model", "m", "zip", "Compression model used: (zip)")
+	compileCmd.Flags().StringVarP(&SO, "cc-os", "ccos", runtime.GOOS, "Specify processor architecture for cross-compilation")
+	compileCmd.Flags().StringVarP(&ARCH, "cc-arch", "ccarch", runtime.GOARCH, "specify operating system for cross-compilation")
+
+	compileCmd.Flags().StringVarP(&Name, "output", "o", "setup", "output file/directory")
 
 	RootCmD.AddCommand(compileCmd)
 }
