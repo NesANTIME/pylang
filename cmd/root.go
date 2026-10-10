@@ -42,8 +42,8 @@ var compileCmd = &cobra.Command{
 }
 
 func init() {
-	compileCmd.Flags().StringVarP(&SO, "cc-os", "ccos", runtime.GOOS, "Specify processor architecture for cross-compilation")
-	compileCmd.Flags().StringVarP(&ARCH, "cc-arch", "ccarch", runtime.GOARCH, "specify operating system for cross-compilation")
+	compileCmd.Flags().StringVarP(&SO, "cc-os", "s", string(runtime.GOOS), "Specify processor architecture for cross-compilation")
+	compileCmd.Flags().StringVarP(&ARCH, "cc-arch", "a", string(runtime.GOARCH), "specify operating system for cross-compilation")
 
 	compileCmd.Flags().StringVarP(&Name, "output", "o", "setup", "output file/directory")
 

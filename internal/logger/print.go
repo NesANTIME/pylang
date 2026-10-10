@@ -50,6 +50,6 @@ func Animation(msg string, frameMs int) *spinner.Spinner {
 		time.Duration(frameMs)*time.Millisecond,
 		spinner.WithWriter(os.Stderr),
 	)
-	s.Suffix = " " + msg
+	s.Suffix = " " + msg + "\n"
 	return s
 }
